@@ -4,6 +4,7 @@ package com.example.hackaton1.Controllers;
 
 import com.example.hackaton1.DTOs.UserDTO.NewUserDto;
 import com.example.hackaton1.DTOs.UserDTO.UserResponseDto;
+import com.example.hackaton1.Restricciones.Domain.LimitesUsuario;
 import com.example.hackaton1.User.Domain.GestionUsuarioService;
 import com.example.hackaton1.User.Domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/company/users")
-public class UserController {
+public class GestionUsers {
 
     @Autowired
     private GestionUsuarioService gestionUsuarioService;
@@ -45,14 +46,14 @@ public class UserController {
     }
 
     @PostMapping("/{id}/limits")
-    public ResponseEntity<Void> asignarLimiteUsuario(@PathVariable Long id, @RequestBody UserLimitDto userLimitDto) {
-        gestionUsuarioService.asignarLimiteUsuario(id, userLimitDto);
+    public ResponseEntity<Void> asignarLimiteUsuario(@PathVariable Long id, @RequestBody LimitesUsuario LimitDto) {
+        gestionUsuarioService.asignarLimiteUsuario(id, LimitDto);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @GetMapping("/{id}/consumption")
-    public ResponseEntity<UserConsumptionDto> obtenerConsumoUsuario(@PathVariable Long id) {
-        UserConsumptionDto consumo = gestionUsuarioService.obtenerConsumoUsuario(id);
+    public ResponseEntity<UserResponseDto> obtenerConsumoUsuario(@PathVariable Long id) {
+        UserResponseDto consumo = gestionUsuarioService.obtenerConsumoUsuario(id);
         return new ResponseEntity<>(consumo, HttpStatus.OK);
     }
 }
