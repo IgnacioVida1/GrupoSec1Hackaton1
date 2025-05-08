@@ -1,0 +1,528 @@
+{
+	"info": {
+		"_postman_id": "8f54f367-763d-4289-bbb9-b4f1e47e773c",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43481085"
+	},
+	"item": [
+		{
+			"name": "Hackaton1",
+			"item": [
+				{
+					"name": "SuperAdmin",
+					"item": [
+						{
+							"name": "CrearUnaEmpresa",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyaW9zdjE1MDIwN0BnbWFpbC5jb20iLCJpYXQiOjE3NDY2Njk4MDgsImV4cCI6MTc0NjY3MzQwOH0.azrwueiz5mQq8r1Uvj47zBftdg_l-1TkTwUQCLanjzs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJvbmFuNDQ3NTY1QGdtYWlsLmNvbSIsImlhdCI6MTc0NjY3ODEyMCwiZXhwIjoxNzQ2NzY0NTIwfQ.3Q31z90L-9nCLtpnXl2bhUCvLhOG3TAllCmidexDQzc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\" : \"Empresa TEC\",\n    \"RUC\" : \"123456789821231\",\n    \"status\" : true,\n    \"fecha_afiliacion\" : \"2025-05-01T00:00:00\",\n    \n    \"admin\" : {\n    \"nombre\" : \"Valentina\",\n    \"apellido\" : \"Gomez\",\n    \"email\" : \"empresa.tec123@gmail.com\",\n    \"password\" : \"121011vr\",\n    \"role\" : \"COMPANY_ADMIN\"\n    }\n   \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/admin/companies",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"companies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ListarEmpresas",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/admin/companies",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"companies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "BuscarEmpresaporid",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/admin/companies/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"companies",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ActualizarEmpresa",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\" : \"Empresa Claro\",\n    \"RUC\" : \"987654321\",\n    \"fecha_afiliacion\" : \"2025-04-22T00:00:00\",\n    \"status\" : true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/admin/companies/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"companies",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ActualizarEstadoDeEmpresa",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/admin/companies/1/status",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"companies",
+										"1",
+										"status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ObtenerConsumption",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/admin/companies/1/consumption",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"admin",
+										"companies",
+										"1",
+										"consumption"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "AdminRestriccionController",
+					"item": [
+						{
+							"name": "CreateRestriccion",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"modelo\": \"gpt-4o\",\n  \"maxTokensPorDia\": 10000,\n  \"maxSolicitudesPorDia\": 500\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080//api/company/restrictions",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"",
+										"api",
+										"company",
+										"restrictions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ListaDeRestricciones",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080//api/company/restrictions",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"",
+										"api",
+										"company",
+										"restrictions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ActuailizarRestriccion",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"modelo\": \"deepseek-chat\",\n  \"maxTokensPorDia\": 10000,\n  \"maxSolicitudesPorDia\": 500\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080//api/company/restrictions/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"",
+										"api",
+										"company",
+										"restrictions",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "EliminarRestriccion",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080//api/company/restrictions/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"",
+										"api",
+										"company",
+										"restrictions",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "AdminGestiondeUsersController",
+					"item": [
+						{
+							"name": "CrearUser",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"role\" : 2,\n    \"nombre\" : \"Joaquin\",\n    \"apellido\" : \"Ocaña\",\n    \"email\" : \"joaquin.oc@gmail.com\",\n    \"password\" : \"260407\",\n    \"empresaId\" : 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080//api/company/users",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"",
+										"api",
+										"company",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ListaDeUsers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080//api/company/users",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"",
+										"api",
+										"company",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "BuscarUserporID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080//api/company/users/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"",
+										"api",
+										"company",
+										"users",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ActualizarUser",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"role\" : 2,\n    \"nombre\" : \"Juan\",\n    \"apellido\" : \"Ocaña\",\n    \"email\" : \"juan.ocana@gmail.com\",\n    \"password\" : \"9604432\",\n    \"empresa\" : {\n        \"nombre\" : \"Empresa Claro\",\n        \"RUC\" : \"987654321\",\n        \"fecha_afiliacion\" : \"2025-04-22T00:00:00\",\n        \"status\" : true\n    },\n    \"Reporte_consumo\" : \"No hay reporte de consumo\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080//api/company/users/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"",
+										"api",
+										"company",
+										"users",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AsignarLimiteDeUser",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"modelo\": \"GPT_4\",\n  \"maxTokensPorDia\": 10000,\n  \"maxSolicitudesPorDia\": 500\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080//api/company/users/1/limits",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"",
+										"api",
+										"company",
+										"users",
+										"1",
+										"limits"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ObtenerConsumo",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080//api/company/users/1/consumption\"",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"",
+										"api",
+										"company",
+										"users",
+										"1",
+										"consumption\""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\" : \"Valeria\",\n    \"apellido\" : \"Rios\",\n    \"email\" : \"valeria.Rios1502@gmail.com\",\n    \"password\" : \"121011vr\",\n    \"role\" : 0\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/auth/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyaW9zdjAxMDRAZ21haWwuY29tIiwiaWF0IjoxNzQ2NjY0NTYwLCJleHAiOjE3NDY2NjgxNjB9.t7IlPYfWp8dd2QzHcf6VN3P_u8TJcb7Y3SeS9ihYSKY",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"valeria.Rios1502@gmail.com\",\n    \"password\" : \"121011vr\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
