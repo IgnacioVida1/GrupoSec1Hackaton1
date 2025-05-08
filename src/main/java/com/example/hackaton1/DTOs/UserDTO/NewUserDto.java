@@ -20,5 +20,5 @@ public class NewUserDto {
 
     String password;
 
-    Empresa empresa;
+    Long empresaId;
 }
