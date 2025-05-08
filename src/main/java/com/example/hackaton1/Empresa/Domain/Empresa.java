@@ -1,6 +1,6 @@
 package com.example.hackaton1.Empresa.Domain;
 
-import com.example.hackaton1.Restricciones.RestriccionEmpresa;
+import com.example.hackaton1.Restricciones.Domain.RestriccionEmpresa;
 import com.example.hackaton1.Solicitud.Domain.Solicitud;
 import com.example.hackaton1.User.Domain.User;
 import jakarta.persistence.*;

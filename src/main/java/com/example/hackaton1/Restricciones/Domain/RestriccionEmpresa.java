@@ -1,4 +1,4 @@
-package com.example.hackaton1.Restricciones;
+package com.example.hackaton1.Restricciones.Domain;
 
 import com.example.hackaton1.Empresa.Domain.Empresa;
 import lombok.AllArgsConstructor;
@@ -7,9 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import jakarta.persistence.*;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -20,17 +17,14 @@ public class RestriccionEmpresa {
 
     @Id @GeneratedValue
     private Long id;
-    private String modelo;
-    private int maxTokensPorDia;
-    private int maxSolicitudesPorSemana;
-    private LocalDate fechaInicio;
-    private LocalDate fechaFin;
+
+    private ModelType modelo;
+
+    private Integer maxTokensPorDia;
+
+    private Integer maxSolicitudesPorDia;
 
     @ManyToOne
     private Empresa empresa;
 
-    @PreUpdate
-    private void preUpdate() {
-        this.fechaFin = LocalDate.now();
-    }
 }

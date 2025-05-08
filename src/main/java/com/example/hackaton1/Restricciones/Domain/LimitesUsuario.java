@@ -1,4 +1,4 @@
-package com.example.hackaton1.Restricciones;
+package com.example.hackaton1.Restricciones.Domain;
 
 import com.example.hackaton1.User.Domain.User;
 import jakarta.persistence.*;
@@ -15,10 +15,12 @@ import lombok.Setter;
 public class LimitesUsuario {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String modelo;
+
+    private ModelType modelo;
+
     private int maxTokens;
+
     private int maxSolicitudes;
-    private String tipoVentana;
 
     @ManyToOne
     private User usuario;
