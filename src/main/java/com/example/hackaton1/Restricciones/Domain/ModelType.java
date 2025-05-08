@@ -1,5 +1,5 @@
 package com.example.hackaton1.Restricciones.Domain;
 
 public enum ModelType {
-    OPENAI, META, DEEPSEEK
+    OPENAI, META, GPT_4, DEEPSEEK
 }

@@ -1,46 +1,58 @@
 package com.example.hackaton1.Controllers;
 
 
-import com.example.hackaton1.DTOs.RestriccionesDto.EmpresaResResponseDto;
-import com.example.hackaton1.DTOs.RestriccionesDto.newEmpresaResDto;
+
 import com.example.hackaton1.DTOs.UserDTO.NewUserDto;
 import com.example.hackaton1.DTOs.UserDTO.UserResponseDto;
-import com.example.hackaton1.Restricciones.Domain.RestriccionEmpresa;
 import com.example.hackaton1.User.Domain.GestionUsuarioService;
 import com.example.hackaton1.User.Domain.User;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/company/users")
-public class AdminGestiondeUsersController {
+public class UserController {
 
     @Autowired
-    private GestionUsuarioService usuarioService;
+    private GestionUsuarioService gestionUsuarioService;
 
     @PostMapping
-    public UserResponseDto crearUsuario(@RequestBody NewUserDto newUserDto) {
-        return usuarioService.crearUsuario(newUserDto);
+    public ResponseEntity<UserResponseDto> crearUsuario(@RequestBody NewUserDto newUserDto) {
+        UserResponseDto userResponseDto = gestionUsuarioService.crearUsuario(newUserDto);
+        return new ResponseEntity<>(userResponseDto, HttpStatus.CREATED);
     }
 
     @GetMapping
-    public List<UserResponseDto> listarUsuarios() {
-        return usuarioService.listarUsuarios();
+    public ResponseEntity<List<UserResponseDto>> listarUsuarios() {
+        List<UserResponseDto> usuarios = gestionUsuarioService.listarUsuarios();
+        return new ResponseEntity<>(usuarios, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public UserResponseDto buscarPorId(@PathVariable Long id) {
-        return usuarioService.buscarUsuarioPorId(id);
+    public ResponseEntity<UserResponseDto> buscarUsuarioPorId(@PathVariable Long id) {
+        UserResponseDto usuario = gestionUsuarioService.buscarUsuarioPorId(id);
+        return new ResponseEntity<>(usuario, HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
-    public void eliminarUsuario(@PathVariable Long id) {
-        usuarioService.eliminarUsuario(id);
+    @PutMapping("/{id}")
+    public ResponseEntity<UserResponseDto> actualizarUsuario(@PathVariable Long id, @RequestBody NewUserDto newUserDto) {
+        UserResponseDto updatedUser = gestionUsuarioService.actualizarUsuario(id, newUserDto);
+        return new ResponseEntity<>(updatedUser, HttpStatus.OK);
+    }
+
+    @PostMapping("/{id}/limits")
+    public ResponseEntity<Void> asignarLimiteUsuario(@PathVariable Long id, @RequestBody UserLimitDto userLimitDto) {
+        gestionUsuarioService.asignarLimiteUsuario(id, userLimitDto);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("/{id}/consumption")
+    public ResponseEntity<UserConsumptionDto> obtenerConsumoUsuario(@PathVariable Long id) {
+        UserConsumptionDto consumo = gestionUsuarioService.obtenerConsumoUsuario(id);
+        return new ResponseEntity<>(consumo, HttpStatus.OK);
     }
 }
