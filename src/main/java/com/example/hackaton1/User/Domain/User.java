@@ -40,4 +40,10 @@ public class User {
 
     @OneToMany(mappedBy = "usuario")
     private List<LimitesUsuario> limites;
+
+    public Object getTotalTokensConsumidos() {
+    }
+
+    public Object getTotalSolicitudesRealizadas() {
+    }
 }

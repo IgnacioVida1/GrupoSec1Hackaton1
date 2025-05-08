@@ -24,4 +24,8 @@ public class UserResponseDto {
 
     public UserResponseDto(Long id, String nombre, String apellido, String email, Long id1) {
     }
+
+    public Long getId() {
+        return null;
+    }
 }
