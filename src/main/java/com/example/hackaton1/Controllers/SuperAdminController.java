@@ -5,6 +5,7 @@ import com.example.hackaton1.DTOs.EmpresaDTO.NewEmpresaDto;
 import com.example.hackaton1.Empresa.Domain.Empresa;
 import com.example.hackaton1.Empresa.Domain.EmpresaService;
 import com.example.hackaton1.Solicitud.Domain.Solicitud;
+import com.example.hackaton1.User.Domain.User;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/admin/companies")
+@PreAuthorize("hasRole('SPARKY_ADMIN')")
 public class SuperAdminController {
 
     @Autowired

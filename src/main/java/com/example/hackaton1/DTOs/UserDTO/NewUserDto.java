@@ -20,5 +20,8 @@ public class NewUserDto {
 
     String password;
 
+    Empresa empresa;
+
+    String Reporte_consumo;
     Long empresaId;
 }

@@ -19,8 +19,8 @@ public class Empresa {
     @Column(nullable = false)
     private String nombre;
 
-    @Column(nullable = false, unique = true)
-    private Long RUC;
+    @Column(nullable = false)
+    private String RUC;
 
     @Column(nullable = false)
     private LocalDate fecha_afiliacion;

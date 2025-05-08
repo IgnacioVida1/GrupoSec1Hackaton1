@@ -11,7 +11,7 @@ public class EmpresaResponseDto {
 
     private String nombre;
 
-    private Long RUC;
+    private String RUC;
 
     private Boolean status;
 
