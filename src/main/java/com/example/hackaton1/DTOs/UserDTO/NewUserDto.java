@@ -23,4 +23,5 @@ public class NewUserDto {
     Empresa empresa;
 
     String Reporte_consumo;
+    Long empresaId;
 }

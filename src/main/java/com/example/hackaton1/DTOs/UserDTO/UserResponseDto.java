@@ -21,4 +21,11 @@ public class UserResponseDto {
     List<Solicitud> lista_solicitudes;
 
     Empresa empresa;
+
+    public UserResponseDto(Long id, String nombre, String apellido, String email, Long id1) {
+    }
+
+    public Long getId() {
+        return null;
+    }
 }

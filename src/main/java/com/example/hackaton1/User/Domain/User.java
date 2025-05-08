@@ -2,6 +2,7 @@ package com.example.hackaton1.User.Domain;
 
 
 import com.example.hackaton1.Empresa.Domain.Empresa;
+import com.example.hackaton1.Restricciones.Domain.LimitesUsuario;
 import com.example.hackaton1.Solicitud.Domain.Solicitud;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -86,4 +87,14 @@ public class User implements UserDetails {
     }
 
 
+}
+
+    @OneToMany(mappedBy = "usuario")
+    private List<LimitesUsuario> limites;
+
+    public Object getTotalTokensConsumidos() {
+    }
+
+    public Object getTotalSolicitudesRealizadas() {
+    }
 }
